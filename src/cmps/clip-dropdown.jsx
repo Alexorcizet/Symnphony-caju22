@@ -12,16 +12,14 @@ export const ClipDropdown = ({ clip, station, onRemoveClip, setIsDropdownClip })
     return (
         <div className='dropdown-clip'>
             <ul>
-                {(station?.createdBy?._id === loggedInUser._id) || loggedInUser?.isAdmin && <li className="remove-clip" onClick={(ev) => {
+                {((station?.createdBy?._id === loggedInUser._id) || (loggedInUser?.isAdmin)) && <li className="remove-clip" onClick={(ev) => {
                     setIsDropdownClip(false)
                     onRemoveClip(ev, clip._id, clip.title)
                 }}>Remove from playlist</li>}
                 <li onClick={() => setIsShare(!isShare)}>Share</li>
-                <li>Copy Song Link</li>
+                {/* <li>Copy Song Link</li> */}
                 <li onClick={() => { navigator.clipboard.writeText(miniMediaPlayer) }}>Embed Track</li>
-            </ul>
-            <ul className="add-to-station">Add to playlist
-                <DropDownList clip={clip} />
+                <li className="add-to-station">Add to playlist <DropDownList clip={clip} /></li>
             </ul>
         </div >
 

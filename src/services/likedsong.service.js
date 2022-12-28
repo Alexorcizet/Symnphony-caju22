@@ -15,29 +15,8 @@ export const getTotalSongDur = (songs) => {
     if (hours < 10) { hours = "0" + hours }
     if (minutes < 10) { minutes = "0" + minutes }
     if (seconds < 10) { seconds = "0" + seconds }
-    const totalTime = hours <= 0 ? `${minutes}:${seconds}` : `${hours}: ${minutes}: ${seconds}`
+    const totalTime = hours <= 0 ? `${minutes}:${seconds} minutes` : `${hours}:${minutes}:${seconds} hours`
 
     return totalTime
 }
 
-// export const checkImg = (imgSrc) => {
-//     return imgSrc === defaultImg ? 'rotate' : ''
-// }
-
-// // export const getSongsByTag = (songs, currTag) => {
-// //     const taggedSongs = songs.filter(song => {
-// //         return songs.tags?.includes(currTag)
-// //     })
-// //     return taggedSongs
-// // }
-
-// // export const getArtistSongs = (songs) => {
-// //     let artistsStations = songs
-// //         .filter(station => station.isArtist)
-// //     // if (searchTerm) {
-// //     //     searchTerm = searchTerm.toLowerCase()
-// //     //     artistsStations = artistsStations
-// //     //         .filter(station => station.name.toLowerCase().includes(searchTerm))
-// //     // }
-// //     return artistsStations
-// // }

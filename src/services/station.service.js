@@ -16,6 +16,7 @@ export const stationService = {
     getStationByTag,
     getArtistStations,
     getTotalSongDur,
+    durationData,
 }
 
 async function query() {
@@ -99,4 +100,9 @@ function getTotalSongDur(songs) {
     const totalTime = hours <= 0 ? `${minutes}:${seconds}` : `${hours}: ${minutes}: ${seconds}`
 
     return totalTime
+}
+
+export function durationData(clips) {
+    let data = ` ${clips.length} ${clips.length === 1 ? 'song' : 'songs'} , ${getTotalSongDur(clips)}`
+    return data
 }

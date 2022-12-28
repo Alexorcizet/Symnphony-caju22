@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { storageService } from '../services/async-storage.service'
+import { durationData } from '../services/station.service'
 import { clearMsg, msg, userService } from '../services/user.service'
 import { setClip, setCurrTime, setIsPlaying, setMediaPlayerInterval, setPlaylist } from '../store/media-player.actions'
 import { removeStation } from '../store/station.actions'
@@ -73,7 +74,6 @@ export const StationPreview = ({
         dispatch(setIsPlaying(true))
     }
 
-
     const onRemoveStation = (e) => {
         e.stopPropagation()
         e.preventDefault()
@@ -109,6 +109,7 @@ export const StationPreview = ({
                 <div className='desc-container '>
                     <div>
                         <h4>{currStation.name}</h4>
+                        <p>{durationData(currStation.clips)}</p>
                     </div>
                     <div>
                         <p className='fs12'>{currStation.desc}</p>

@@ -26,13 +26,12 @@ export const SymphonyApp = () => {
                 </div>
                 <StationList stations={stationService.getStationByTag(stations, 'Rock')} />
             </div>
-
             <div className="station-by-tag-container">
                 <div className='tag-link'>
-                    <h1>Hip Hop</h1>
+                    <h1>90's</h1>
                     <Link to={'/tag/Hip Hop'}>SEE ALL</Link>
                 </div>
-                <StationList stations={stationService.getStationByTag(stations, 'Hip Hop')} />
+                <StationList stations={stationService.getStationByTag(stations, '90s')} />
             </div>
 
             <div className="station-by-tag-container">
@@ -54,18 +53,18 @@ export const SymphonyApp = () => {
 
             <div className="station-by-tag-container">
                 <div className='tag-link'>
-                    <h1>60s</h1>
+                    <h1>Beatles</h1>
                     <Link to={'/tag/60s'}>SEE ALL</Link>
                 </div>
-                <StationList stations={stationService.getStationByTag(stations, '60s')} />
+                <StationList stations={stationService.getStationByTag(stations, 'Beatles')} />
             </div>
 
             <div className="station-by-tag-container">
                 <div className='tag-link'>
-                    <h1>Funk</h1>
+                    <h1>Hip Hop</h1>
                     <Link to={'/tag/Funk'}>SEE ALL</Link>
                 </div>
-                <StationList stations={stationService.getStationByTag(stations, 'Funk')} />
+                <StationList stations={stationService.getStationByTag(stations, 'Hip Hop')} />
             </div>
 
             <div className="station-by-tag-container">

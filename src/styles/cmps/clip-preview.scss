@@ -22,6 +22,26 @@
         height: rem(40px);
     }
 
+    .clip-title {
+        position: absolute;
+        left: 40px;
+    }
+
+    .clip-play-btn {
+        font-size: 1rem;
+        position: absolute;
+        top: 20px;
+    }
+
+    .clip-equalizer {
+        img {
+            position: absolute;
+            top: 20px;
+            width: 15px;
+            height: 15px;
+        }
+    }
+
     .title-text {
         padding: 3px 0;
         padding-inline-start: 15px;
@@ -58,12 +78,10 @@
     }
 
     .clip-num,
-    .clip-play-btn,
     .artist-name,
     .added,
     .clock-area,
-    .like,
-    .clip-equalizer {
+    .like {
         display: none;
     }
 
@@ -104,7 +122,8 @@
             max-width: 28.3px;
 
             img {
-                width: 150%;
+                position: absolute;
+                display: unset;
             }
         }
 
@@ -114,6 +133,7 @@
         }
 
         .clip-title {
+            position: static;
             grid-area: title;
             border-bottom: 1px solid transparent;
             white-space: nowrap;
@@ -165,6 +185,7 @@
             background-color: #313131;
 
             .clip-play-btn {
+                position: static;
                 display: unset;
                 padding-right: 10px;
                 font-size: 13px;

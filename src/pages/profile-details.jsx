@@ -24,8 +24,6 @@ export const UserProfile = () => {
     let [recentlyPlayedClips, setRecentlyPlayedClips] = useState([])
     const dispatch = useDispatch()
 
-    console.log('watchedProfileUser', watchedProfileUser)
-
     useEffect(() => {
         const id = params.id
         dispatch(loadStations())

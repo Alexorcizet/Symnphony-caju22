@@ -3,7 +3,7 @@ import { useSelector } from "react-redux"
 import { Link } from "react-router-dom"
 import { getTotalSongDur } from "../services/likedsong.service"
 
-export const HeaderDetails = ({ creator, clips }) => {
+export const HeaderDetails = ({ creator, clips, currStation }) => {
   creator = creator ? creator : 'Symphony'
   const user = useSelector(state => state.userModule.user)
   const params = window.location.href

@@ -41,13 +41,12 @@ export const SearchBar = ({
             setIsSearch(false)
             return
         }
-        console.log('target.value', target.value)
         if (setSearchTerm) await setSearchTerm(target.value)
         if (!isStationDetails) {
             setSearchParams(target.value ? { keyword: target.value } : undefined, { replace: true })
         }
     }
-
+    
     const onHandleSubmit = async (e) => {
         if (e) e.preventDefault()
         handleSearch(searchTerm)
@@ -57,14 +56,13 @@ export const SearchBar = ({
         if (setIsSearch) setIsSearch(true)
         let searchResults = await searchService.getClips(currSearchTerm)
         searchResults = searchResults.splice(0, 12)
-        console.log('currSearchTerm', currSearchTerm)
         if (loggedInUser) {
             let searchAlreadySaved = loggedInUser.recentSearches
                 .find(recentSearch => recentSearch.title === currSearchTerm)
-            if (!searchAlreadySaved) {
-                const updatedUser = await searchService.updateUserRecentSearches(searchResults, loggedInUser, currSearchTerm)
-                dispatch(updateUser(updatedUser))
-            }
+            // if (!searchAlreadySaved) {
+            //     const updatedUser = await searchService.updateUserRecentSearches(searchResults, loggedInUser, currSearchTerm)
+            //     dispatch(updateUser(updatedUser))
+            // }
         }
 
         setSearchClips(searchResults)

@@ -29,9 +29,8 @@ export const LikesBtns = ({ clip }) => {
     }
 
     return (
-
         <div className="like-btn-container">
-            {isLiked(user, clip._id) ? <button
+            {clip && user && isLiked(user, clip._id) ? <button
                 className='like symbol fas fa-heart green'
                 onClick={() => onDisLikeSong(clip._id)}>
             </button> : <button

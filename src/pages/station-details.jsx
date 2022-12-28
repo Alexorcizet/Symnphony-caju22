@@ -21,7 +21,6 @@ import { getDate } from '../services/clip.service.js'
 
 export const StationDetails = () => {
     const loggedInUser = userService.getLoggedinUser()
-
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
@@ -35,8 +34,6 @@ export const StationDetails = () => {
     const [searchTerm, setSearchTerm] = useState()
 
     const key = loggedInUser?._id === currStation?.createdBy?._id ? 'user-clip' : 'clip'
-
-    console.log('currStation', currStation?.imgUrl)
 
     useEffect(() => {
         loadStation(params)
@@ -126,7 +123,6 @@ export const StationDetails = () => {
             return
         }
         const stationToUpdate = { ...currStation }
-        console.log('stationToUpdate onAddClip', stationToUpdate?.name)
         addedClip.createdAt = new Date(getDate()).toLocaleDateString()
         stationToUpdate.clips.push(addedClip)
         setCurrStation(stationToUpdate)
@@ -143,6 +139,7 @@ export const StationDetails = () => {
         ev.stopPropagation()
         currStation.clips = currStation.clips.filter(clip => clip._id !== clipId)
         setCurrStation({ ...currStation })
+        setCurrStationsClips(currStation.clips)
         dispatch(updateStation(currStation))
         dispatch(setUserMsg(msg(clipTitle, ' removed from ' + currStation.name)))
         setTimeout(() => {

@@ -2,6 +2,7 @@ const initialState = {
     stations: [],
 }
 export function stationReducer(state = initialState, action) {
+
     switch (action.type) {
         case 'SET_STATIONS':
             return {

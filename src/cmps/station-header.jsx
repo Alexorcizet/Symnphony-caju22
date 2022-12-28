@@ -60,7 +60,6 @@ export const StationHeader = ({
             .catch(error => {
                 console.log('failed to compute color for img: ' + error)
             })
-        console.log('stationToUpdate', stationToUpdate)
         dispatch(updateStation(stationToUpdate))
 
         setIsChangedImg(false)
@@ -137,9 +136,9 @@ export const StationHeader = ({
                 <h1 className='station-header-name-container'>{currStation.name}</h1>
                 <div className='desc-container'>{currStation.desc}</div>
                 {isUserStation ? <HeaderDetails
-                    creator={currStation?.createdBy?.fullname} clips={currStation?.clips} /> :
+                    creator={currStation?.createdBy?.fullname} clips={currStation?.clips} currStation={currStation}/> :
                     <HeaderDetails
-                        creator={currStation?.createdBy?.username} clips={currStation?.clips} />}
+                        creator={currStation?.createdBy?.username} clips={currStation?.clips} currStation={currStation}/>}
             </div>
         </div>
         <div className='playlist-btns'

@@ -13,7 +13,7 @@ export const searchService = {
 }
 
 const YT_API_Key = 'AIzaSyDY1FSaJrD0PrUG8bPx8Q1lC4g3j9RT9P0'
-const ALEX_API_KEY = 'AIzaSyCufURb4q5k_aJP0We6SJ9dN6T67VtublU'
+const ALEX_API_KEY = 'AIzaSyAeNlPhWRjEZwESz2ZuYlnOCOMJ-0N1-Hs'
 
 const KEY = 'clipsDB'
 
@@ -35,6 +35,7 @@ async function getClips(term) {
         + `&key=${ALEX_API_KEY}&q=${term}`
 
     let clips = await axios.get(apiStr)
+    console.log(clips);
 
 
     const cleaner = /\([^\)]*\)|\[[^\]]*\]/g
@@ -42,7 +43,7 @@ async function getClips(term) {
     const apostrophe = /&#39|&quot/g
     const ampersand = /&amp;/gi
     const symbolsCleaner = /[`~!@#$%^*()_|+=?;:",.<>\{\}\[\]\\\/]/gi
-    const cleanArtistName = /vevo|music|-topic| - topic|official/gi
+    const cleanArtistName = /vevo|music|-topic| - topic|official|\(official video\)/gi
 
 
     clips = clips.data.items

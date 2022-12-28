@@ -6,6 +6,7 @@
     width: 190px;
     border-radius: 10px;
     overflow: hidden;
+    text-shadow: 1px 1px black;
 
     @include for-mobile-layout {
         height: 180px;

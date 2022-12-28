@@ -5,7 +5,7 @@
     transform: translate(-100%);
     top: 40px;
     width: max-content;
-    height: 150px;
+    height: fit-content;
     gap: 12px;
     padding: 5px;
     background-color: #1f1f1f;
@@ -26,7 +26,6 @@
     }
 
     .add-to-station {
-        position: absolute;
         width: max-content;
         height: fit-content;
         text-align: start;
@@ -43,14 +42,14 @@
         position: absolute;
         background-color: #1f1f1f;
         top: 0px;
-        left:-110px;
+        left: -110px;
         display: none;
     }
 
     li:hover {
         background-color: #757575;
         cursor: pointer;
-        
+
 
     }
 

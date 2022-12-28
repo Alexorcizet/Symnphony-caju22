@@ -4,6 +4,7 @@ export function loadStations() {
     return async (dispatch) => {
         try {
             const stations = await stationService.query()
+            console.log('LOADSTATIONS stations:', stations)
             dispatch({
                 type: 'SET_STATIONS',
                 stations

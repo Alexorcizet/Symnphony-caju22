@@ -16,14 +16,13 @@ export const ClipPreview = ({
     idx,
     clipNum,
     onRemoveClip,
-    bgColor,
     dndStyle }) => {
 
     let { playerFunc, isPlaying, currClip, currPlaylist, mediaPlayerInterval, currTime, clipLength } = useSelector(state => state.mediaPlayerModule)
 
     const loggedInUser = useSelector(state => state.userModule.user)
     let [isDropdownClip, setIsDropdownClip] = useState(false)
-    let [isClicked, setIsClicked] = useState()
+    let [isClicked, setIsClicked] = useState(false)
 
     useEffect(() => {
         if (!currClip || !currPlaylist) return
@@ -37,26 +36,24 @@ export const ClipPreview = ({
 
     const onTogglePlay = (clip, isClicked, loggedInUser) => {
         if (!isClicked) {
-            dispatch(setIsPlaying(false))
+            dispatch(setIsPlaying(true))
             clearInterval(mediaPlayerInterval)
             dispatch(setPlaylist(station))
             dispatch(setClip(clip))
             dispatch(setMediaPlayerInterval(setInterval(getTime, 750)))
             playerFunc.playVideo()
         }
-        if (isClicked) {
+        else {
+            dispatch(setIsPlaying(false))
             clearInterval(mediaPlayerInterval)
             playerFunc.pauseVideo()
         }
-        dispatch(setIsPlaying(!isPlaying))
         const userToUpdate = { ...loggedInUser }
         userService.updateUserRecentlyPlayedClips(userToUpdate, clip)
         dispatch(updateUser(userToUpdate))
     }
 
     const getTime = async () => {
-        console.log('LOCAL GET TIME');
-        console.log('mediaPlayerInterval', mediaPlayerInterval)
         const time = await playerFunc.getCurrentTime()
         storageService.put('currTime', time)
         dispatch(setCurrTime(time))
@@ -66,17 +63,8 @@ export const ClipPreview = ({
             if (nextIdx > currPlaylist.clips.length - 1) nextIdx = 0
             currClip = currPlaylist.clips[nextIdx]
         }
-        dispatch(setClip(currClip))
         dispatch(setIsPlaying(true))
     }
-
-    // const getBgcolor = () => {
-    //     let currBgcolor = defaultBgcolor
-    //     if (bgColor) currBgcolor = bgColor
-    //     if (dndStyle?.backgroundColor) currBgcolor = dndStyle.backgroundColor
-    //     return currBgcolor
-    // }
-    // const linearBgc = `linear-dradient(180deg, rgba(2,0,36,1) 0%, rgba(18,19,19,0.6348914565826331) 35%, rgba(0,212,255,1) 100%))`
 
     return <li
         style={{
@@ -87,16 +75,17 @@ export const ClipPreview = ({
         }}
 
         className={'clip-preview-container '} >
-        <div className='clip-preview-main-container'>
-            {currClip?._id === clip?._id && isPlaying ? <div className='clip-equalizer'><img src={equalizer} alt='clip-img' /></div> :
-                <React.Fragment>
-                    <i className={'clip-play-btn ' + (isClicked ? 'fas fa-pause' : 'fas fa-play playing')}
-                        onClick={() => {
-                            setIsClicked(!isClicked)
-                            onTogglePlay(clip, isClicked, loggedInUser)
-                        }}></i>
+        <div onClick={() => {
+            setIsClicked(!isClicked)
+            onTogglePlay(clip, isClicked, loggedInUser)
+        }} className='clip-preview-main-container'>
+            {currClip?._id === clip?._id && isPlaying ? <div className='clip-equalizer'><img src={equalizer} onClick={() => {
+                setIsClicked(!isClicked)
+            }} alt='clip-img' /></div> :
+                <div>
+                    <i className={'clip-play-btn ' + (currClip?.id === clip?.id && isPlaying ? 'fas fa-pause' : 'fas fa-play playing')}></i>
                     <div className='clip-num'>{clipNum ? clipNum : idx + 1}</div>
-                </React.Fragment>
+                </div>
             }
             <div className='clip-title flex align-center'>
                 <img className='clip-img' src={clip.img?.url} alt='clip-img' />

@@ -1,10 +1,18 @@
-.DND-TST {
-    &>* {
+.about {
+    h1 {
+        margin: unset;
+    }
+    margin-top: 2%;
+    margin-inline-start: 2%;
+    a {
+        color: cadetblue;
+    }
+    ul > li > a{
+        position: relative;
+        bottom: 3px;
+    }
 
-        height: 150px;
-        width: 150px;
-        background-color: #43e143;
-        gap: 15px;
-        margin: 10px;
+    i{
+        color: rgb(10, 102,194);
     }
 }

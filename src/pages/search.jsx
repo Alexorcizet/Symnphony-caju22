@@ -174,16 +174,16 @@ export const Search = () => {
                 </div>}
             {(isSearch && !searchClips.length) &&
                 <div className='no-results-user-msg'>
-                    {isLoading && <div className='search-loader-container'><img className='search-loader' src={equalizer} alt='search Loader'></img></div>
-                        // <div>
-                        //     <p>Your search - {searchTerm} - didn't match any of our songs.</p>
-                        //     <ul>Suggsetions:
-                        //         <li>● Make sure that all words are spelled correctly.</li>
-                        //         <li>● Try different keywords.</li>
-                        //         <li>● Try more general keywords.</li>
-                        //     </ul>
-                        // </div>
-
+                    {isLoading && <div className='search-loader-container'><img className='search-loader' src={equalizer} alt='search Loader'></img>
+                        <div>
+                            <p>Your search - {searchTerm} - didn't match any of our songs.</p>
+                            <ul>Suggsetions:
+                                <li>● Make sure that all words are spelled correctly.</li>
+                                <li>● Try different keywords.</li>
+                                <li>● Try more general keywords.</li>
+                            </ul>
+                        </div>
+                    </div>
                     }
                 </div>
             }

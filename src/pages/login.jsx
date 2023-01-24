@@ -27,8 +27,8 @@ export const Login = () => {
 
     const onHandleSubmit = async (ev) => {
         ev.preventDefault()
-        dispatch(onLogin(user))
-         navigate('/')
+        await dispatch(onLogin(user))
+        navigate('/')
     }
 
     return (

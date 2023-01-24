@@ -50,7 +50,6 @@ async function updateFollowers(user) {
 
 async function login(currUser) {
     const user = await httpService.post('auth/login', currUser)
-    console.log('user', user)
     if (user) {
         return saveLocalUser(user)
     }

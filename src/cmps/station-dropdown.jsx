@@ -25,7 +25,6 @@ export const StationDropdown = ({
                         <li onClick={() => onSaveSearchStation()}>Save Playlist</li>}
                 </div>
             }
-            <li onClick={() => navigator.clipboard.writeText('http://localhost:3000/#/station/' + stationId)}>Share</li>
         </ul>
 
     )

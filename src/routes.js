@@ -1,6 +1,6 @@
 import { SymphonyApp } from './pages/symphony-app.jsx'
 import { About } from './pages/about.jsx'
-import { DownloadApp } from './pages/download-app.jsx'
+// import { DownloadApp } from './pages/download-app.jsx'
 import { Login } from './pages/login.jsx'
 import { Signup } from './pages/signup.jsx'
 import { UserProfile } from './pages/profile-details'
@@ -21,10 +21,10 @@ const routes = [
         path: '/about',
         component: <About />,
     },
-    {
-        path: '/download',
-        component: <DownloadApp />,
-    },
+    // {
+    //     path: '/download',
+    //     component: <DownloadApp />,
+    // },
     {
         path: '/login',
         component: <Login />,

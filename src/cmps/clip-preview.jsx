@@ -31,10 +31,7 @@ export const ClipPreview = ({
         }
     }, [isPlaying])
 
-    const copyLink = (clipId) => {
-        navigator.clipboard.writeText(`https://www.youtube.com/watch?v=${clipId}`)
-
-    }
+  
 
     const isCreatedAt = (type === 'search-res' || type === 'queue-clip')
     const dispatch = useDispatch()
@@ -111,7 +108,6 @@ export const ClipPreview = ({
                 className='dropdown-btn fa-solid fa-ellipsis'
                 onClick={() => {
                     setIsDropdownClip(!isDropdownClip)
-                    copyLink(clip._id)
                 }}>
                 {isDropdownClip && <ClipDropdown
                     setIsDropdownClip={setIsDropdownClip}

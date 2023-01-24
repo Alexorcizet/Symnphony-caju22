@@ -82,17 +82,17 @@ const pickPrimaryColor = (colorsList) => {
             return { color: cur, count: colorCount[cur] }
         return prev
     }, { color: '', count: 0 })
-    console.log('primary:', primary)
+    // console.log('primary:', primary)
     
     return primary.color
 }
 
 //  Convert each pixel value ( number ) to hexadecimal ( string ) with base 16
 const rgbToHex = (pixel) => {
-    console.log('pixel:', pixel)
+    // console.log('pixel:', pixel)
     
     const componentToHex = (c) => {
-        console.log('c:', c)
+        // console.log('c:', c)
         
         const hex = c.toString(16)
         return hex.length === 1 ? '0' + hex : hex

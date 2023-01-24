@@ -35,7 +35,7 @@ async function getClips(term) {
         + `&key=${ALEX_API_KEY}&q=${term}`
 
     let clips = await axios.get(apiStr)
-    console.log(clips);
+    // console.log(clips);
 
 
     const cleaner = /\([^\)]*\)|\[[^\]]*\]/g

@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react"
 import { TagPreview } from "./tag-preview"
+import { utilService } from "../services/util.service"
+
 
 export const TagList = ({ stations }) => {
     let [tagListToDisplay, setTagsListToDisplay] = useState([])
@@ -17,7 +19,8 @@ export const TagList = ({ stations }) => {
                         tagsObj.push(
                             {
                                 tag,
-                                src: station.imgUrl
+                                src: station.imgUrl,
+                                backgroundColor: utilService.getRandomColor()
                             }
                         )
                     }

@@ -14,7 +14,7 @@ export const LoginMsg = ({ currTop, setIsLoginMsg }) => {
                 Create a playlist
             </p>
             <p className='login-first-p-2'>
-                Log in to create and share playlists.
+                Log in to create playlists.
             </p>
         </div>
         <div className='login-first-btns flex'>
